@@ -18,23 +18,23 @@ from code import Stack
 s = Stack()
 s.push('a')
 s.push('b')
-s.printing()
+s.print()
 s.push('c')
 s.push('d')
-s.printing()
+s.print()
 print(s.pop())
-s.printing()
+s.print()
 
 from code import Queue
 q = Queue()
 q.enqueue('e')
 q.enqueue('f')
-q.printing()
+q.print()
 q.enqueue('g')
 q.enqueue('h')
-q.printing()
+q.print()
 q.dequeue()
-q.printing()
+q.print()
 
 from code import calc_minimum
 if calc_minimum([3,5,1,7,2]) != 1:

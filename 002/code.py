@@ -69,46 +69,42 @@ def calc_nth_root(x, n, precision):
 
 class Stack:
     def __init__(self):
-        self.stack = []
+        self.elements = []
 
-    def printing(self):  # prefer not to use print as the name of the function
-        print(list(reversed((self.stack))))
+    def print(self):  
+        print(list(reversed((self.elements))))
 
     def push(self, x):
-        self.stack.append(x)
+        self.elements.append(x)
 
     def pop(self):
-        return self.stack.pop()
+        return self.elements.pop()
 
 
 class Queue:
     def __init__(self):
-        self.queue = []
+        self.elements = []
 
-    def printing(self):
-        print(self.queue)
+    def print(self):
+        print(self.elements)
 
     def enqueue(self, x):
-        self.queue.append(x)
+        self.elements.append(x)
 
     def dequeue(self):
-        top_item = self.queue[0]
+        top_item = self.elements[0]
         print(top_item)
-        self.queue.remove(top_item)
-        return self.queue
+        self.elements.remove(top_item)
+        return self.elements
 
 
 def calc_minimum(numbers):
-    count = len(numbers) - 1
     min_num = numbers[0]
-    while count <= len(numbers) - 1:
-        if count == 0:
-            break
-        elif min_num >= numbers[count]:
-            min_num = numbers[count]
+    for num in numbers:
+        if min_num >= num:
+            min_num = num
         else:
             min_num = min_num
-        count -= 1
     return min_num
 
 
@@ -116,11 +112,12 @@ def simple_sort(numbers):
     result = []
     count = len(numbers) - 1
     while count <= len(numbers) - 1:
+        minimum = calc_minimum(numbers)
         if count == 0:
             break
         else:
-            result.append(calc_minimum(numbers))
-            numbers.remove(calc_minimum(numbers))
+            result.append(minimum)
+            numbers.remove(minimum)
         count -= 1
     result.append(numbers[0])
     return result
