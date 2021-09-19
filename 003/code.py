@@ -38,7 +38,6 @@ def tally_sort(numbers):
         for n in range(tallies[i]):
             new_list.append(i+original_minimum)
     return new_list
-print(tally_sort([3, 3, 1, 0, 3, 1, -2]))
 
 
 # Card Sort:
@@ -61,7 +60,6 @@ def card_sort(numbers):
     for i in range(1, len(numbers)):
         sorted_list = insert_num(numbers[i], sorted_list)
     return sorted_list
-print(card_sort([3, 3, 1, 0, 3, 1, -2]))
 
 
 # Swap Sort:
@@ -75,4 +73,3 @@ def swap_sort(numbers):
             if numbers[num] > numbers[num+1]:
                 numbers[num], numbers[num+1] = numbers[num+1], numbers[num]
     return numbers
-print(swap_sort([3, 3, 1, 0, 3, 1, -2]))
