@@ -8,11 +8,11 @@ if encode("christine", 2, 3) != [9,19,39,21,41,43,21,31,13]:
 
 from code import decode_numbers
 if decode_numbers([5,3,9,5,43], 2, 3) != "a cat":
-    print("encode failed on input [5,3,9,5,43], 2, 3")
+    print("decode_numbers failed on input [5,3,9,5,43], 2, 3")
 if decode_numbers([-5,3,9,5,43], 2, 3) != False:
-    print("encode failed on input [-5,3,9,5,43], 2, 3)")
+    print("decode_numbers failed on input [-5,3,9,5,43], 2, 3)")
 if decode_numbers([5,3,9,5,43], 1, 0) != False:
-    print("encode failed on input [5,3,9,5,43], 1, 0")
+    print("decode_numbers failed on input [5,3,9,5,43], 1, 0")
 
 from code import Stack
 s = Stack()

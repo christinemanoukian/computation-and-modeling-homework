@@ -16,3 +16,24 @@ def newton_rhapson(x, n, precision):
             x_old = x_new
         condition = abs(func(x_new, n, x)) >= precision
     return x_old
+
+def merge(a, b):
+    result = []
+    a_index = 0
+    b_index = 0
+    while a_index < len(a) and b_index < len(b):
+        if a[a_index] > b[b_index]:
+            result.append(b[b_index])
+            b_index += 1
+        else:
+            result.append(a[a_index])
+            a_index += 1
+    if a_index < len(a):
+        while a_index < len(a):
+            result.append(a[a_index])
+            a_index += 1
+    else:
+        while b_index < len(b):
+            result.append(b[b_index])
+            b_index += 1
+    return result
