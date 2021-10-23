@@ -1,0 +1,58 @@
+input list: [-2,3,5,-2,4,4,-5,-5]
+break it in half: [-2,3,5,-2] [4,4,-5,-5]
+use merge_sort recursively to sort the two halves
+
+    input list: [-2,3,5,-2]
+    break it in half: [-2,3] [5,-2]
+    use merge_sort recursively to sort the two halves
+
+        input list: [-2,3]
+        break it in half: [-2] [3]
+        the two halves have only one element each, so they are already sorted
+        so we can merge them to get [-2,3]
+
+        input list: [5,-2]
+        break it in half: [5] [-2]
+        the two halves have only one element each, so they are already sorted
+        so we can merge them to get [-2,5]
+
+    now we have two sorted lists [-2,3] and [-2,5]
+    so we can merge them to get [-2,-2,3,5]
+
+    input list: [4,4,-5,-5]
+    break it in half: [4,4], [-5,-5]
+    use merge_sort recursively to sort the two halves
+
+        input list: [4,4]
+        break it in half: [4] [4]
+        the two halves have only one element each, so they are already sorted
+        so we can merge them to get [4,4]
+
+        input list: [-5,-5]
+        break it in half: [-5] [-5]
+        the two halves have only one element each, so they are already sorted
+        so we can merge them to get [-5,-5]
+
+    now we have two sorted lists [4,4] and [-5,-5]
+    so we can merge them to get [-5,-5,4,4]
+
+now we have two sorted lists [-2,-2,3,5] and [-5,-5,4,4]
+so we can merge them to get [-5,-5,-2,-2,3,4,4,5]
+
+
+input list: [0,7,2,7]
+break it in half: [0,7] [2,7]
+use merge_sort recursively to sort the two halves
+
+    input list: [0,7]
+    break it in half: [0] [7]
+    the two halves have only one element each, so they are already sorted
+    so we can merge them to get [0,7]
+
+    input list: [2,7]
+    break it in half: [2] [7]
+    the two halves have only one element each, so they are already sorted
+    so we can merge them to get [2,7]
+
+now we have two sorted lists [0,7] and [2,7]
+so we can merge them to get [0,2,7,7]
