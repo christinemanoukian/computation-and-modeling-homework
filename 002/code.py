@@ -93,7 +93,6 @@ class Queue:
 
     def dequeue(self):
         top_item = self.elements[0]
-        print(top_item)
         self.elements.remove(top_item)
         return self.elements
 
