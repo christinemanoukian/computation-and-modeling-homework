@@ -5,7 +5,7 @@ def deriv(x, n):
     return n * x ** (n-1) 
 
 def newton_rhapson(x, n, precision):
-    x_old = 1
+    x_old = 4
     condition = True
     while condition:
         if deriv(x_old, n) == 0:
@@ -16,6 +16,8 @@ def newton_rhapson(x, n, precision):
             x_old = x_new
         condition = abs(func(x_new, n, x)) >= precision
     return x_old
+
+print(newton_rhapson(3, 2, .000000001))
 
 def merge(a, b):
     result = []
