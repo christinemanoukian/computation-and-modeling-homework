@@ -1,4 +1,4 @@
-from code import *
+from newton_rhapson import *
 
 if newton_rhapson(2,2,.0001) != 1.4142156862745099:
     print('newton_rhapson failed on input 2,2,.0001')

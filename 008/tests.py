@@ -1,4 +1,6 @@
-from code import merge_sort
+import sys
+sys.path.append('008')
+from merge_sort import merge_sort
 
 if merge_sort([-2,3,5,-2,4,4,-5,-5]) != [-5,-5,-2,-2,3,4,4,5]:
     print('merge_sort failed on input [-2,3,5,-2,4,4,-5,-5]')

@@ -72,4 +72,8 @@ def swap_sort(numbers):
         for num in range(len(numbers) - 1):
             if numbers[num] > numbers[num+1]:
                 numbers[num], numbers[num+1] = numbers[num+1], numbers[num]
+        print(numbers)
     return numbers
+
+
+print(swap_sort([5,4,3,2,1]))
