@@ -16,10 +16,10 @@ class Game:
 
         # OR
 
-        win = 'player' #initializing the winner variable
-        winner = 2 #example - corresponds to player 2
-        win += str(winner) #makes 2 a string
-        self.winner = win #self.winner = 'player2'
+#        win = 'player' #initializing the winner variable
+#        winner = 2 #example - corresponds to player 2
+#        win += str(winner) #makes 2 a string
+#        self.winner = win #self.winner = 'player2'
         #PROBLEM - maybe when running the game, the argument would be 'Christine' instead of 'player2'
 
 

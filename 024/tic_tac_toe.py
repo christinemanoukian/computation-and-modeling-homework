@@ -1,5 +1,5 @@
 import random
-
+import numpy as np
 
 class Player:
     def __init__(self):
@@ -30,39 +30,55 @@ class Game:
         self.board[i][j] = player.player_number
 
     def check_winner(self):
+        win = 'player' #initializing the winner variable
         open_spaces = []
-        for i in range(len(board)):
-            for j in range(len(board[i])):
-                if board[i][j] == 0:
+        for i in range(len(self.board)):
+            for j in range(len(self.board[i])):
+                if self.board[i][j] == 0:
                     open_spaces.append((i,j))
         if open_spaces == []:
             self.winner = 'tie'
         else:
-        # go thru instances of a win, if it's a win, do one of the options in test file (not sure which is better or if 
-        # there's an option better that I don't know of
-
+            if self.board[0][0] == self.board[0][1] == self.board[0][2]:
+                win += str(self.board[0][0])
+                self.winner = win
+            if self.board[1][0] == self.board[1][1] == self.board[1][2]:
+                win += str(self.board[1][0])
+                self.winner = win
+            if self.board[2][0] == self.board[2][1] == self.board[2][2]:
+                win += str(self.board[2][0])
+                self.winner = win
+            if self.board[0][0] == self.board[1][0] == self.board[2][0]:
+                win += str(self.board[0][0])
+                self.winner = win
+            if self.board[0][1] == self.board[1][1] == self.board[2][1]:
+                win += str(self.board[0][1])
+                self.winner = win
+            if self.board[0][2] == self.board[1][2] == self.board[2][2]:
+                win += str(self.board[0][2])
+                self.winner = win
+            if self.board[0][0] == self.board[1][1] == self.board[2][2]:
+                win += str(self.board[0][0])
+                self.winner = win
+            if self.board[0][2] == self.board[1][1] == self.board[2][0]:
+                win = self.board[0][2]
+                self.winner = win
  
     def run(self):
-        while self.winner == None:
+        while self.winner is None:
             self.move(self.p1)
             self.check_winner()
-            if self.winner != None:
+            if self.winner is not None:
                 return self.winner
             else:
                 self.move(self.p2)
                 self.check_winner()
-                if self.winner != None:
+                if self.winner is not None:
                     return self.winner
-
-# ask about log=true
-# code tie instance
-
-# turn board into matrix just for fun
-            
-
 
 
 player1 = Player()
 player2 = Player()
 game = Game(player1, player2)
-print(game.run())
+game.run()
+print(game.winner)
