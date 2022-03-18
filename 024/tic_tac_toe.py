@@ -23,7 +23,7 @@ class Game:
         self.p1.player_number = 1
         self.p2.player_number = 2
         self.winner = None
-        self.log = True
+        self.log = False
     
     def print_board(self):
         print(f'{self.board[0][0]} {self.board[0][1]} {self.board[0][2]}\n{self.board[1][0]} {self.board[1][1]} {self.board[1][2]}\n{self.board[2][0]} {self.board[2][1]} {self.board[2][2]}')
@@ -39,7 +39,6 @@ class Game:
             self.print_board()
 
     def check_winner(self):
-        win = 'player' #initializing the winner variable
         open_spaces = []
         for i in range(len(self.board)):
             for j in range(len(self.board[i])):
@@ -51,29 +50,21 @@ class Game:
             self.winner = 'tie'
         else:
             if self.board[0][0] == self.board[0][1] == self.board[0][2] != 0:
-                win += str(self.board[0][0])
-                self.winner = win
+                self.winner = self.board[0][0]
             if self.board[1][0] == self.board[1][1] == self.board[1][2] != 0:
-                win += str(self.board[1][0])
-                self.winner = win
+                self.winner = self.board[1][0]
             if self.board[2][0] == self.board[2][1] == self.board[2][2] != 0:
-                win += str(self.board[2][0])
-                self.winner = win
+                self.winner = self.board[2][0]
             if self.board[0][0] == self.board[1][0] == self.board[2][0] != 0:
-                win += str(self.board[0][0])
-                self.winner = win
+                self.winner = self.board[0][0]
             if self.board[0][1] == self.board[1][1] == self.board[2][1] != 0:
-                win += str(self.board[0][1])
-                self.winner = win
+                self.winner = self.board[0][1]
             if self.board[0][2] == self.board[1][2] == self.board[2][2] != 0:
-                win += str(self.board[0][2])
-                self.winner = win
+                self.winner = self.board[0][2]
             if self.board[0][0] == self.board[1][1] == self.board[2][2] != 0:
-                win += str(self.board[0][0])
-                self.winner = win
+                self.winner = self.board[0][0]
             if self.board[0][2] == self.board[1][1] == self.board[2][0] != 0:
-                win += str(self.board[0][2])
-                self.winner = win
+                self.winner = self.board[0][2]
  
     def run(self):
         while self.winner is None:
