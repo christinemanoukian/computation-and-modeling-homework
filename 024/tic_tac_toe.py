@@ -1,5 +1,4 @@
 import random
-import numpy as np
 
 class Player:
     def __init__(self):
@@ -24,10 +23,20 @@ class Game:
         self.p1.player_number = 1
         self.p2.player_number = 2
         self.winner = None
+        self.log = True
+    
+    def print_board(self):
+        print(f'{self.board[0][0]} {self.board[0][1]} {self.board[0][2]}\n{self.board[1][0]} {self.board[1][1]} {self.board[1][2]}\n{self.board[2][0]} {self.board[2][1]} {self.board[2][2]}')
 
     def move(self, player):
+        if self.log:
+            print(f'Fetching move from player {player.player_number}')
         i,j = player.choose_move(self.board)
+        if self.log:
+            print(f'Updating board: player {player.player_number} moves into coordinates {i},{j}')
         self.board[i][j] = player.player_number
+        if self.log:
+            self.print_board()
 
     def check_winner(self):
         win = 'player' #initializing the winner variable
@@ -36,32 +45,34 @@ class Game:
             for j in range(len(self.board[i])):
                 if self.board[i][j] == 0:
                     open_spaces.append((i,j))
+        if self.log:
+            print(f'Checking open spaces: {open_spaces}')
         if open_spaces == []:
             self.winner = 'tie'
         else:
-            if self.board[0][0] == self.board[0][1] == self.board[0][2]:
+            if self.board[0][0] == self.board[0][1] == self.board[0][2] != 0:
                 win += str(self.board[0][0])
                 self.winner = win
-            if self.board[1][0] == self.board[1][1] == self.board[1][2]:
+            if self.board[1][0] == self.board[1][1] == self.board[1][2] != 0:
                 win += str(self.board[1][0])
                 self.winner = win
-            if self.board[2][0] == self.board[2][1] == self.board[2][2]:
+            if self.board[2][0] == self.board[2][1] == self.board[2][2] != 0:
                 win += str(self.board[2][0])
                 self.winner = win
-            if self.board[0][0] == self.board[1][0] == self.board[2][0]:
+            if self.board[0][0] == self.board[1][0] == self.board[2][0] != 0:
                 win += str(self.board[0][0])
                 self.winner = win
-            if self.board[0][1] == self.board[1][1] == self.board[2][1]:
+            if self.board[0][1] == self.board[1][1] == self.board[2][1] != 0:
                 win += str(self.board[0][1])
                 self.winner = win
-            if self.board[0][2] == self.board[1][2] == self.board[2][2]:
+            if self.board[0][2] == self.board[1][2] == self.board[2][2] != 0:
                 win += str(self.board[0][2])
                 self.winner = win
-            if self.board[0][0] == self.board[1][1] == self.board[2][2]:
+            if self.board[0][0] == self.board[1][1] == self.board[2][2] != 0:
                 win += str(self.board[0][0])
                 self.winner = win
-            if self.board[0][2] == self.board[1][1] == self.board[2][0]:
-                win = self.board[0][2]
+            if self.board[0][2] == self.board[1][1] == self.board[2][0] != 0:
+                win += str(self.board[0][2])
                 self.winner = win
  
     def run(self):
@@ -70,15 +81,8 @@ class Game:
             self.check_winner()
             if self.winner is not None:
                 return self.winner
-            else:
-                self.move(self.p2)
-                self.check_winner()
-                if self.winner is not None:
-                    return self.winner
-
-
-player1 = Player()
-player2 = Player()
-game = Game(player1, player2)
-game.run()
-print(game.winner)
+            self.move(self.p2)
+            self.check_winner()
+            if self.winner is not None:
+                return self.winner
+        return self.winner
