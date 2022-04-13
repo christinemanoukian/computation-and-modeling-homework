@@ -1,19 +1,5 @@
 import random
 
-class Player:
-    def __init__(self):
-        self.player_number = None
-
-    def choose_move(self, board):
-        open_spaces = []
-        for i in range(len(board)):
-            for j in range(len(board[i])):
-                if board[i][j] == 0:
-                    open_spaces.append((i,j))
-        else:
-            return random.choices(open_spaces)[0]
-
-
 
 class Game:
     def __init__(self, player1, player2):
