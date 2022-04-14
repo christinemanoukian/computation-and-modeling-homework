@@ -1,14 +1,3 @@
-import random
-
-def random_strategy_function(board):
-    open_spaces = []
-    for i in range(len(board)):
-        for j in range(len(board[i])):
-            if board[i][j] == 0:
-                open_spaces.append((i,j))
-    else:
-        return random.choices(open_spaces)[0]
-
 def custom_strategy_function(board):
     if sum(x.count(1) for x in board) == sum(y.count(2) for y in board):
         player_num, opp_player_num = 1, 2
@@ -143,16 +132,3 @@ def custom_strategy_function(board):
         return (1,1)
     
     return random.choices(open_spaces)[0]
-
-
-def cheater_strategy_function(board):
-    if board.count(1) == board.count(2):
-        player_num, opp_player_num = 1, 2
-    else:
-        player_num, opp_player_num = 2, 1
-
-    for i in range(3):
-        for j in range(3):
-            board[i][j] = player_num
-    
-    return (0,0)
