@@ -23,7 +23,12 @@ class Game:
     def move(self, player):
         if self.log:
             print(f'Fetching move from player {player.player_number}')
-        i,j = player.choose_move(self.board.copy())
+        
+        x = player.choose_move(self.flatten_list(self.board.copy()))
+        if type(x) != tuple:
+            i,j = x//3, x%3
+        else:
+            i,j = x
         if self.log:
             print(f'Updating board: player {player.player_number} moves into coordinates {i},{j}')
         open_spaces = self.check_for_open_spaces()
@@ -82,3 +87,6 @@ class Game:
                     print('wins')
                 return self.winner
         return self.winner
+
+    def flatten_list(self, board):
+        return [item for sublist in board for item in sublist]
