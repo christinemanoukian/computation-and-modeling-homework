@@ -29,8 +29,11 @@ class Game:
             i,j = x//3, x%3
         else:
             i,j = x
+
         if self.log:
             print(f'Updating board: player {player.player_number} moves into coordinates {i},{j}')
+
+            
         open_spaces = self.check_for_open_spaces()
         if (i,j) in open_spaces:
             self.board[i][j] = player.player_number
