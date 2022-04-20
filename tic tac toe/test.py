@@ -9,9 +9,9 @@ from elias import *
 from jeff import *
 
 wins = {1: 0, 2: 0, 'ties': 0}
-for i in range(1000):
-    player1 = Player(random_strategy_function)
-    player2 = Player(custom_strategy_function)
+for i in range(100):
+    player1 = Player(custom_strategy_function)
+    player2 = Player(celeste)
     game = Game(player1, player2, log=False)
     game.run()
 
