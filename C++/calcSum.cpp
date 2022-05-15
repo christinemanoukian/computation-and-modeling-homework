@@ -45,7 +45,7 @@ int calcSum(int m, int n) {
 }
 
 int main() {
-  std::cout << "Checking...\n";
+  std::cout << "Checking\n";
   assert(calcSum(2,3)==131);
-  std::cout << "Passed.";
+  std::cout << "Passed";
 }
