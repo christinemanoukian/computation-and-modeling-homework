@@ -1,4 +1,4 @@
-from code import *
+from sorting import *
 
 if tally_sort([3,3,1,0,3,1,-2]) != [-2,0,1,1,3,3,3]:
     print('tally_sort failed on input [3,3,1,0,3,1,-2]')
